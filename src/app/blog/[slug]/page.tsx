@@ -11,6 +11,8 @@ import { remark } from 'remark';
 import { Metadata } from 'next';
 import { MDXRemoteSerializeResult } from 'next-mdx-remote';
 import { getPostsData } from '@/lib/serverUtils';
+import rehypeHighlight from 'rehype-highlight';
+import 'highlight.js/styles/github-dark.css';
 
 interface TocItem {
   title: string;
@@ -80,6 +82,7 @@ async function getPost(slug: string): Promise<Post | null> {
         [rehypeSlug],
         [rehypeStringify],
         [rehypeAutolinkHeadings],
+        [rehypeHighlight, { ignoreMissing: true }],
       ],
       remarkRehypeOptions: {
         allowDangerousHtml: true
@@ -100,9 +103,17 @@ async function getPost(slug: string): Promise<Post | null> {
   }
 }
 
-export default async function BlogPage({ params }: Props) {
+export default async function Page({ params }: Props) {
   const { slug } = await params;
   const post = await getPost(slug)
+
   if (!post) notFound()
-  return <BlogPost post={post} />
+
+  return (
+    <div className="min-h-screen bg-background">
+      <div className="container mx-auto px-4 py-8">
+        <BlogPost post={post} />
+      </div>
+    </div>
+  )
 }

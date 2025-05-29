@@ -6,6 +6,7 @@ import { MDXRemote, MDXRemoteSerializeResult } from "next-mdx-remote";
 import { Suspense } from "react";
 import SideNav from "@/components/side-nav";
 import Toc from "@/components/toc";
+import { mdxComponents } from "@/lib/mdx-components";
 
 interface BlogPostProps {
 	post: {
@@ -36,7 +37,7 @@ export default function BlogPost({ post }: BlogPostProps) {
 		<div className={"w-full flex justify-center"}>
 			<div className={"w-full max-w-screen-lg relative"}>
 				{/*mobile*/}
-				<div
+				{/* <div
 					className={
 						"block 2xl:hidden sticky top-20 p-2  backdrop-blur-md z-10 w-full shadow-sm"
 					}
@@ -46,7 +47,7 @@ export default function BlogPost({ post }: BlogPostProps) {
 							<SideNav />
 						</div>
 					</div>
-				</div>
+				</div> */}
 
 				{/*pc*/}
 				<div className={"px-4 pt-8"}>
@@ -73,7 +74,7 @@ export default function BlogPost({ post }: BlogPostProps) {
 							{Math.round(post.stats.minutes)} min read
 						</div>
 						<Suspense fallback={<>Loading...</>}>
-							<MDXRemote {...post.mdxSource} />
+							<MDXRemote {...post.mdxSource} components={mdxComponents} />
 						</Suspense>
 					</article>
 					{/* <Comments/> */}
