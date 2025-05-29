@@ -15,7 +15,7 @@ import {
 	CarouselPrevious,
 } from "@/components/ui/carousel";
 import { Button } from "./ui/button";
-import { Separator } from "./ui/separator";
+
 
 export default function CarouselCard() {
 	return (
@@ -53,7 +53,6 @@ export default function CarouselCard() {
 				<CarouselPrevious className="hidden sm:block" />
 				<CarouselNext className="hidden sm:block" />
 			</Carousel>
-			<Separator />
 		</div>
 	);
 }

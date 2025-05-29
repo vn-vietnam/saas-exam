@@ -1,7 +1,6 @@
 import {
   Loader2,
   Github,
-  Mail,
   LucideProps,
 } from "lucide-react"
 

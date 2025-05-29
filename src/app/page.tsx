@@ -1,3 +1,4 @@
+import { AccordionContainer } from "@/components/AccordionContainer";
 import Banner from "@/components/Banner";
 import CarouselCard from "@/components/CarouselCard";
 import Footer from "@/components/Footer";
@@ -13,6 +14,7 @@ export default function Home() {
 			<ListCard />
 			<Banner />
 			<CarouselCard />
+			<AccordionContainer />
 			<Footer />
 		</div>
 	);

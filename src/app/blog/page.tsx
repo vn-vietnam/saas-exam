@@ -1,13 +1,13 @@
-"use client";
 
-export default function ProfilePage() {
+import BlogContent from "@/components/BlogContent";
+import { getPostsData } from "@/lib/serverUtils";
+
+export default async function BlogPage() {
+	const posts = await getPostsData();
 	return (
-		<div className="container mx-auto py-10">
-			<h1 className="text-2xl font-bold mb-4">Profile</h1>
-			<p>
-				View and edit your profile information here. This page is protected and
-				only visible to authenticated users.
-			</p>
+		<div className="p-5">
+			<BlogContent posts={posts} />
+			
 		</div>
 	);
 }

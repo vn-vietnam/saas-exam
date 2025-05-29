@@ -29,7 +29,7 @@ export default function SignInPage() {
 					</div>
 					<UserSignInForm />
 					<p className="px-8 text-center text-sm text-gray-400">
-						Don't have an account?{" "}
+						Don&apos;t have an account?{" "}
 						<Button variant="link" className="p-0 h-auto" asChild>
 							<Link href={"/auth/register"} className="text-white">Sign up</Link>
 						</Button>
