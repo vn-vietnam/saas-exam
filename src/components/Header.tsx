@@ -21,9 +21,9 @@ function Header() {
 
 	return (
 		<header className="flex border-b justify-between items-center px-5 h-16 ">
-			<div>
-				<Image src={"/next.svg"} alt="logo" width={100} height={100} className="w-20 h-20"/>
-			</div>
+			<Link href="/">
+				<Image src={"/logo/logo-saas.png"} alt="logo" width={100} height={100} className="w-16 h-16"/>
+			</Link>
 			<div className="hidden md:block">
 				<NavigationMenuWrapper />
 			</div>
@@ -32,17 +32,16 @@ function Header() {
 			</div>
 			<div className="hidden md:block">
 				{session ? (
-					<div className="flex gap-2 items-center">
-						{/* <span>Welcome, {session?.user?.name}</span> */}
+					<Link href="/dashboard/profile" className="flex gap-2 items-center">
 						<Image
-							src={session?.user?.image || "/user.png"}
+							src={session?.user?.image || "/images/user.png"}
 							alt="User Avatar"
 							width={32}
 							height={32}
 							className="rounded-full"
 						/>
 						<Button variant="outline" onClick={handleSignOut}>Sign Out</Button>
-					</div>
+					</Link>
 				) : (
 					<div className="flex items-center">
 						<Link href="/auth/signin">

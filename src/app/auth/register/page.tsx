@@ -45,16 +45,24 @@ export default function RegisterPage() {
 	}
 
 	return (
-		<div className=" flex h-screen items-center justify-center px-5 md:px-0">
-			<div className="mx-auto flex w-full flex-col justify-center space-y-6 sm:w-[350px]">
-				<div className="flex justify-center">
-					<Image src={"/next.svg"} alt="logo" width={100} height={100} />	
-				</div>
+		<div className=" flex h-screen items-center justify-center px-5 md:px-0" style={{
+			backgroundImage: "url('/main-images/bg-banner.jpg')",
+			backgroundSize: "cover",
+			backgroundPosition: "center",
+			backgroundRepeat: "no-repeat",
+			backgroundColor: "rgba(0, 0, 0, 0.7)",
+			backgroundBlendMode: "darken",
+		}}>
+			<div className="mx-auto flex w-full flex-col justify-center space-y-6 sm:w-[350px] text-white">
+				<Link href={"/"} className="flex justify-center">
+					<Image src={"/logo/logo-circle.png"} alt="logo" width={100} height={100} />	
+				</Link>
+				<div className="text-2xl font-bold text-center">Register</div>
 				<form onSubmit={onSubmit}>
 					<div className="grid w-full items-center gap-4">
 						<div className="flex flex-col space-y-1.5">
 							<Label htmlFor="name">Name</Label>
-							<Input id="name" name="name" placeholder="John Doe" required />
+							<Input id="name" name="name" placeholder="Enter your name" required className="text-white placeholder:text-gray-400"/>
 						</div>
 						<div className="flex flex-col space-y-1.5">
 							<Label htmlFor="email">Email</Label>
@@ -62,25 +70,26 @@ export default function RegisterPage() {
 								id="email"
 								name="email"
 								type="email"
-								placeholder="john@example.com"
+								placeholder="Enter your email"
 								required
+								className="text-white placeholder:text-gray-400"
 							/>
 						</div>
 						<div className="flex flex-col space-y-1.5">
 							<Label htmlFor="password">Password</Label>
-							<Input id="password" name="password" type="password" required />
+							<Input id="password" name="password" type="password" placeholder="Enter your password" required className="text-white placeholder:text-gray-400" />
 						</div>
 					</div>
 
 					<div className="flex flex-col gap-4 pt-4">
-						<Button className="w-full" type="submit" disabled={loading}>
+						<Button className="w-full" type="submit" disabled={loading} variant="secondary">
 							{loading ? "Creating account..." : "Create account"}
 						</Button>
 						{error && <p className="text-sm text-red-500">{error}</p>}
-						<p className="px-8 text-center text-sm text-muted-foreground">
-							Don't have an account?{" "}
+						<p className="px-8 text-center text-sm text-gray-400">
+							Already have an account?{" "}
 							<Button variant="link" className="p-0 h-auto" asChild>
-								<Link href={"/auth/signin"}>Sign in</Link>  
+								<Link href={"/auth/signin"} className="text-white">Sign in</Link>  
 							</Button>
 						</p>
 					</div>

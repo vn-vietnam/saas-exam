@@ -134,40 +134,45 @@ export const data = {
 	],
 };
 
-export const components: { title: string; href: string; description: string }[] = [
+export const components: {
+	title: string;
+	href: string;
+	description: string;
+}[] = [
 	{
-	  title: "Alert Dialog",
-	  href: "/docs/primitives/alert-dialog",
-	  description:
-		"A modal dialog that interrupts the user with important content and expects a response.",
+		title: "Grammar for University Entrance",
+		href: "/tips/1",
+		description:
+			"Grammar is a crucial aspect of the University Entrance exam. This section provides a comprehensive guide to the grammar rules and structures that you need to know for success.",
 	},
 	{
-	  title: "Hover Card",
-	  href: "/docs/primitives/hover-card",
-	  description:
-		"For sighted users to preview content available behind a link.",
+		title: "Vocabulary Essential for University Entrance",
+		href: "/tips/2",
+		description:
+			"Vocabulary is a key component of the University Entrance exam. This section provides a comprehensive guide to the vocabulary that you need to know for success.",
 	},
 	{
-	  title: "Progress",
-	  href: "/docs/primitives/progress",
-	  description:
-		"Displays an indicator showing the completion progress of a task, typically displayed as a progress bar.",
+		title: "Reading Skills for University Entrance",
+		href: "/tips/3",
+		description:
+			"Reading is a crucial aspect of the University Entrance exam. This section provides a comprehensive guide to the reading skills that you need to know for success.",
 	},
 	{
-	  title: "Scroll-area",
-	  href: "/docs/primitives/scroll-area",
-	  description: "Visually or semantically separates content.",
+		title: "Grammar for VSTEP Success",
+		href: "/tips/4",
+		description:
+			"Grammar is a crucial aspect of the VSTEP exam. This section provides a comprehensive guide to the grammar rules and structures that you need to know for success.",
 	},
 	{
-	  title: "Tabs",
-	  href: "/docs/primitives/tabs",
-	  description:
-		"A set of layered sections of content—known as tab panels—that are displayed one at a time.",
+		title: "Test-Taking Strategies for All Exams",
+		href: "/tips/5",
+		description:
+			"A set of layered sections of content—known as tab panels—that are displayed one at a time.",
 	},
 	{
-	  title: "Tooltip",
-	  href: "/docs/primitives/tooltip",
-	  description:
-		"A popup that displays information related to an element when the element receives keyboard focus or the mouse hovers over it.",
+		title: "Listening Tips for TOEIC",
+		href: "/tips/6",
+		description:
+			"Listening is a crucial aspect of the TOEIC exam. This section provides a comprehensive guide to the listening skills that you need to know for success.",
 	},
-  ]
+];

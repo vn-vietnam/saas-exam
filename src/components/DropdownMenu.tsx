@@ -4,24 +4,18 @@ import {
 	DropdownMenuContent,
 	DropdownMenuGroup,
 	DropdownMenuItem,
-	DropdownMenuLabel,
-	DropdownMenuPortal,
 	DropdownMenuSeparator,
 	DropdownMenuShortcut,
-	DropdownMenuSub,
-	DropdownMenuSubContent,
-	DropdownMenuSubTrigger,
 	DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import {
 	Menu,
-	User2Icon,
-	DollarSignIcon,
 	SettingsIcon,
 	KeyboardIcon,
-	GroupIcon,
+	LightbulbIcon,
 	LogOutIcon,
 	LogInIcon,
+	BookAIcon
 } from "lucide-react";
 import { Session } from "next-auth";
 import { signOut } from "next-auth/react";
@@ -40,27 +34,23 @@ export function DropdownMenuWrapper({ session }: { session: Session }) {
 				<DropdownMenuContent className="w-48">
 					<DropdownMenuSeparator />
 					<DropdownMenuGroup>
-						<DropdownMenuItem>
-							Blog
-							<DropdownMenuShortcut>
-								<DollarSignIcon />
-							</DropdownMenuShortcut>
+						<DropdownMenuItem asChild>
+							<Link href="/blog">
+								Blog
+								<DropdownMenuShortcut>
+									<BookAIcon />
+								</DropdownMenuShortcut>
+							</Link>
 						</DropdownMenuItem>
-						<DropdownMenuItem>
-							Settings
-							<DropdownMenuShortcut>
-								<SettingsIcon />
-							</DropdownMenuShortcut>
-						</DropdownMenuItem>
-						<DropdownMenuItem>
-							Keyboard shortcuts
-							<DropdownMenuShortcut>
-								<KeyboardIcon />
-							</DropdownMenuShortcut>
+						<DropdownMenuItem asChild>
+							<Link href="/tips">
+								Tips and Tricks
+								<DropdownMenuShortcut>
+									<LightbulbIcon />
+								</DropdownMenuShortcut>
+							</Link>
 						</DropdownMenuItem>
 					</DropdownMenuGroup>
-
-					<DropdownMenuSeparator />
 					<DropdownMenuItem asChild>
 						<Link href="/auth/signin">
 							Log in
@@ -74,63 +64,45 @@ export function DropdownMenuWrapper({ session }: { session: Session }) {
 				<DropdownMenuContent className="w-48">
 					<DropdownMenuSeparator />
 					<DropdownMenuGroup>
-						<DropdownMenuItem>
-							Profile
-							<DropdownMenuShortcut>
-								{/* <User2Icon /> */}
+						<DropdownMenuItem asChild>
+							<Link href="/dashboard/profile">
+								Profile
+								<DropdownMenuShortcut>
+									{/* <User2Icon /> */}
 								<Image
 									src={session?.user?.image || "/user.png"}
 									alt="User Avatar"
 									width={25}
 									height={25}
 								/>
-							</DropdownMenuShortcut>
+								</DropdownMenuShortcut>
+							</Link>
 						</DropdownMenuItem>
-						<DropdownMenuItem>
-							Billing
-							<DropdownMenuShortcut>
-								<DollarSignIcon />
-							</DropdownMenuShortcut>
+						<DropdownMenuItem asChild>
+							<Link href="/dashboard">
+								Dashboard
+								<DropdownMenuShortcut>
+									<SettingsIcon />
+								</DropdownMenuShortcut>
+							</Link>
 						</DropdownMenuItem>
-						<DropdownMenuItem>
-							Settings
-							<DropdownMenuShortcut>
-								<SettingsIcon />
-							</DropdownMenuShortcut>
+						<DropdownMenuItem asChild>
+							<Link href="/tips">
+								Tips and Tricks
+								<DropdownMenuShortcut>
+									<LightbulbIcon />
+								</DropdownMenuShortcut>
+							</Link>
 						</DropdownMenuItem>
-						<DropdownMenuItem>
-							Keyboard shortcuts
-							<DropdownMenuShortcut>
-								<KeyboardIcon />
-							</DropdownMenuShortcut>
-						</DropdownMenuItem>
-					</DropdownMenuGroup>
-					<DropdownMenuSeparator />
-					<DropdownMenuGroup>
-						<DropdownMenuItem>Team</DropdownMenuItem>
-						<DropdownMenuSub>
-							<DropdownMenuSubTrigger>Invite users</DropdownMenuSubTrigger>
-							<DropdownMenuPortal>
-								<DropdownMenuSubContent>
-									<DropdownMenuItem>Email</DropdownMenuItem>
-									<DropdownMenuItem>Message</DropdownMenuItem>
-									<DropdownMenuSeparator />
-									<DropdownMenuItem>More...</DropdownMenuItem>
-								</DropdownMenuSubContent>
-							</DropdownMenuPortal>
-						</DropdownMenuSub>
-						<DropdownMenuItem>
-							New Team
-							<DropdownMenuShortcut>
-								<GroupIcon />
-							</DropdownMenuShortcut>
+						<DropdownMenuItem asChild>
+							<Link href="/blog">
+								Blog
+								<DropdownMenuShortcut>
+									<KeyboardIcon />
+								</DropdownMenuShortcut>
+							</Link>
 						</DropdownMenuItem>
 					</DropdownMenuGroup>
-					<DropdownMenuSeparator />
-					<DropdownMenuItem>GitHub</DropdownMenuItem>
-					<DropdownMenuItem>Support</DropdownMenuItem>
-					<DropdownMenuItem disabled>API</DropdownMenuItem>
-					<DropdownMenuSeparator />
 					<DropdownMenuItem asChild>
 						<div onClick={() => signOut({ redirect: true })}>
 							Logout

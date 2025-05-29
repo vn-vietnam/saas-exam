@@ -43,7 +43,7 @@ export default function CarouselCard() {
 										</CardDescription>
 									</CardHeader>
 									<CardContent>
-										<Button>View more</Button>
+										<Button variant="secondary" >View more</Button>
 									</CardContent>
 								</Card>
 							</div>

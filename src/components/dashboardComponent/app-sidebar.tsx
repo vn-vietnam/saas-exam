@@ -19,9 +19,9 @@ import {
 import { data } from "@/config/data"
 import { useSession } from "next-auth/react";
 import Image from "next/image"
+import Link from "next/link"
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   const { data: session } = useSession();
-  console.log(session)
   return (
     <Sidebar
       className="top-[50px] !h-[calc(100svh-50px)]"
@@ -31,15 +31,15 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
         <SidebarMenu>
           <SidebarMenuItem>
             <SidebarMenuButton size="lg" asChild>
-              <a href="#">
+              <Link href="/dashboard/profile">
                 <div className="flex aspect-square size-8 items-center justify-center rounded-lg bg-sidebar-primary text-sidebar-primary-foreground">
-                  <Image src={session?.user?.image || "/user.png"} alt="User Avatar" width={32} height={32}  />
+                  <Image src={session?.user?.image || "/images/user.png"} alt="User Avatar" width={32} height={32}  />
                 </div>
                 <div className="grid flex-1 text-left text-sm leading-tight">
                   <span className="truncate font-semibold">{session?.user?.name}</span>
                   <span className="truncate text-xs">{session?.user?.email}</span>
                 </div>
-              </a>
+              </Link>
             </SidebarMenuButton>
           </SidebarMenuItem>
         </SidebarMenu>

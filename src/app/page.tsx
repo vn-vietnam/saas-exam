@@ -11,7 +11,6 @@ export default function Home() {
 			<Header />
 			<ContainerPage />
 			<ListCard />
-			<ListCard />
 			<Banner />
 			<CarouselCard />
 			<Footer />
