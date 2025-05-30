@@ -18,22 +18,22 @@ export const data = {
 	},
 	navMain: [
 		{
-			title: "Playground",
-			url: "#",
+			title: "Courses",
+			url: "/dashboard/courses",
 			icon: SquareTerminal,
 			isActive: true,
 			items: [
 				{
-					title: "History",
-					url: "#",
+					title: "TOEIC",
+					url: "/dashboard/courses/toeic",
 				},
 				{
-					title: "Starred",
-					url: "#",
+					title: "VSTEP",
+					url: "/dashboard/courses/vstep",
 				},
 				{
-					title: "Settings",
-					url: "#",
+					title: "University Entrance",
+					url: "/dashboard/courses/university-entrance",
 				},
 			],
 		},

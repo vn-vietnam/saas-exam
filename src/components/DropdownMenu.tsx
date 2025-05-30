@@ -15,7 +15,7 @@ import {
 	LightbulbIcon,
 	LogOutIcon,
 	LogInIcon,
-	BookAIcon
+	BookAIcon,
 } from "lucide-react";
 import { Session } from "next-auth";
 import { signOut } from "next-auth/react";
@@ -26,7 +26,7 @@ export function DropdownMenuWrapper({ session }: { session: Session }) {
 	return (
 		<DropdownMenu>
 			<DropdownMenuTrigger asChild>
-				<Button variant="outline">
+				<Button variant="ghost">
 					<Menu />
 				</Button>
 			</DropdownMenuTrigger>
@@ -69,12 +69,12 @@ export function DropdownMenuWrapper({ session }: { session: Session }) {
 								Profile
 								<DropdownMenuShortcut>
 									{/* <User2Icon /> */}
-								<Image
-									src={session?.user?.image || "/user.png"}
-									alt="User Avatar"
-									width={25}
-									height={25}
-								/>
+									<Image
+										src={session?.user?.image || "/images/user.png"}
+										alt="User Avatar"
+										width={25}
+										height={25}
+									/>
 								</DropdownMenuShortcut>
 							</Link>
 						</DropdownMenuItem>

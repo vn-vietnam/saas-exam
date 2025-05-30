@@ -4,11 +4,21 @@ import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import { useSession } from "next-auth/react";
 import Image from "next/image";
+import { useEffect, useState } from "react";
 import CourseList from "./CourseList";
 
 export default function ProfilePage() {
 	const { data } = useSession();
-	// console.log(data);
+	const [exams, setExams] = useState<any>(null);
+	const { data: session } = useSession();
+	useEffect(() => {
+		fetch(`/api/users/${session?.user?.id}/exams`)
+			.then((res) => res.json())
+			.then((data) => {
+				setExams(data);
+			});
+	}, []);
+	// console.log(exams?.data[0]?.exam?.title);
 	return (
 		<div className="flex flex-1 flex-col gap-4 p-2">
 			<div className="grid auto-rows-min gap-4 md:grid-cols-2">
@@ -32,9 +42,9 @@ export default function ProfilePage() {
 			</div>
 			<div className="min-h-[100vh] flex-1 rounded-xl md:min-h-min">
 				<div>
-					<h1 className="text-2xl font-bold">Exams</h1>
+					<h1 className="text-2xl font-bold">History Exams</h1>
 				</div>
-				<CourseList />
+				{exams && <CourseList exams={exams?.data} />}
 			</div>
 		</div>
 	);

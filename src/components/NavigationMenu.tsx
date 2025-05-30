@@ -21,7 +21,7 @@ export function NavigationMenuWrapper() {
 		<NavigationMenu>
 			<NavigationMenuList>
 				<NavigationMenuItem>
-					<NavigationMenuTrigger>Exams</NavigationMenuTrigger>
+					<NavigationMenuTrigger className="bg-transparent ">Exams</NavigationMenuTrigger>
 					<NavigationMenuContent>
 						<ul className="grid gap-3 p-4 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
 							<li className="row-span-3">
@@ -59,7 +59,7 @@ export function NavigationMenuWrapper() {
 					</NavigationMenuContent>
 				</NavigationMenuItem>
 				<NavigationMenuItem>
-					<NavigationMenuTrigger>Tips and Tricks</NavigationMenuTrigger>
+					<NavigationMenuTrigger className="bg-transparent ">Tips and Tricks</NavigationMenuTrigger>
 					<NavigationMenuContent>
 						<ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
 							{components.map((component) => (
@@ -74,9 +74,9 @@ export function NavigationMenuWrapper() {
 						</ul>
 					</NavigationMenuContent>
 				</NavigationMenuItem>
-				<NavigationMenuItem>
+				<NavigationMenuItem >
 					<NavigationMenuLink
-						className={navigationMenuTriggerStyle()}
+						className={navigationMenuTriggerStyle() + " bg-transparent"}
 						href="/blog"
 					>
 						Blog

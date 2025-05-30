@@ -7,7 +7,7 @@ import { compare } from "bcryptjs"
 const prisma = new PrismaClient()
 
 const handler = NextAuth({
-  theme: { logo: "https://authjs.dev/img/logo-sm.png" },
+  theme: { logo: "/images/logo-circle.png" },
   providers: [
     GoogleProvider({
       clientId: process.env.GOOGLE_ID || "",
@@ -103,14 +103,43 @@ const handler = NextAuth({
       }
       return true
     },
-    async jwt({ token, trigger, session, account }) {
-      if (trigger === "update") token.name = session.user.name
-      if (account?.access_token) token.accessToken = account.access_token
-      return token
+    async jwt({ token, user, account, trigger, session }) {
+      // 'user' is only present the first time the JWT is created (on sign in)
+      if (user) {
+        token.id = user.id; // Store the user's ID from the 'user' object into the JWT token
+      }
+
+      if (trigger === "update") {
+        // This part is for when session.update() is called
+        token.name = session.user.name;
+        // If you need to update other properties, add them here
+      }
+
+      if (account?.access_token) {
+        // Add provider-specific access token if available
+        token.accessToken = account.access_token;
+      }
+      return token;
     },
     async session({ session, token }) {
-      if (token?.accessToken) session.accessToken = token.accessToken
-      return session
+      // Transfer properties from the JWT token to the session object
+      if (token?.id) {
+        session.user.id = token.id; // Assign the ID from the token to session.user.id
+      }
+      // You might also want to explicitly ensure other properties are present from token
+      if (token?.email) {
+        session.user.email = token.email;
+      }
+      if (token?.name) {
+        session.user.name = token.name;
+      }
+      if (token?.image) {
+        session.user.image = token.image;
+      }
+      if (token?.accessToken) {
+        session.accessToken = token.accessToken;
+      }
+      return session;
     },
   },
   pages: {
@@ -121,4 +150,4 @@ const handler = NextAuth({
   debug: process.env.NODE_ENV === "development",
 })
 
-export { handler as GET, handler as POST } 
+export { handler as GET, handler as POST }

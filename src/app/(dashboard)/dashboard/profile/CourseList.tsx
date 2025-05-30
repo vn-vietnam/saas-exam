@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import {
 	Card,
@@ -7,66 +8,31 @@ import {
 	CardHeader,
 } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-const ListCourse = () => {
+import advancedFormat from "dayjs/plugin/advancedFormat";
+import dayjs from "dayjs";
+
+const ListCourse = (exams: any) => {
+	dayjs.extend(advancedFormat);
+	// console.log(exams);
 	return (
 		<div className="w-[100%] my-5 flex flex-col justify-center items-center gap-5">
 			<div className="w-[100%] flex flex-row flex-wrap justify-start items-center gap-5 ">
-				<Card className="w-[300px] md:w-[350px]">
-					<CardHeader>
-						<CardTitle>Toiec 650</CardTitle>
-						<CardDescription className="text-sm">
-							Last Score: 360/990
-						</CardDescription>
-					</CardHeader>
-					<CardContent>
-						<Button variant="outline">View Exam</Button>
-					</CardContent>
-				</Card>
-				<Card className="w-[300px] md:w-[350px]">
-					<CardHeader>
-						<CardTitle>Toiec 350</CardTitle>
-						<CardDescription className="text-sm">
-							Last Score: 200/990
-						</CardDescription>
-					</CardHeader>
-					<CardContent>
-						<Button variant="outline">View Exam</Button>
-					</CardContent>
-				</Card>
-				<Card className="w-[300px] md:w-[350px]">
-					<CardHeader>
-						<CardTitle>Vstep Exam 1</CardTitle>
-						<CardDescription className="text-sm">
-							Last Score: 7.33/10
-						</CardDescription>
-					</CardHeader>
-					<CardContent>
-						<Button variant="outline">View Exam</Button>
-					</CardContent>
-				</Card>
-				<Card className="w-[300px] md:w-[350px]">
-					<CardHeader>
-						<CardTitle>Vstep Exam 2</CardTitle>
-						<CardDescription className="text-sm">
-							Last Score: 2/10
-						</CardDescription>
-					</CardHeader>
-					<CardContent>
-						<Button variant="outline">View Exam</Button>
-					</CardContent>
-				</Card>
-				<Card className="w-[300px] md:w-[350px]">
-					<CardHeader>
-						<CardTitle>Sat Exam 1</CardTitle>
-						<CardDescription className="text-sm">
-							Last Score: 100/1600
-						</CardDescription>
-					</CardHeader>
-					<CardContent>
-						<Button variant="outline">View Exam</Button>
-					</CardContent>
-				</Card>
-				
+				{exams?.exams?.map((exam: any) => (
+					<Card className="w-[100%] md:w-[350px]" key={exam?.id}>
+						<CardHeader>
+							<CardTitle>{exam?.exam?.title}</CardTitle>
+							<CardDescription className="text-sm">
+								<div>Last Score: {exam?.score}</div>
+								<div>
+									Date: {dayjs(exam?.startTime).format("DD/MM/YYYY")}
+								</div>
+							</CardDescription>
+						</CardHeader>
+						<CardContent>
+							<Button variant="outline">View Exam</Button>
+						</CardContent>
+					</Card>
+				))}
 			</div>
 		</div>
 	);

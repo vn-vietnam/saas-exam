@@ -14,7 +14,7 @@ const Banner = () => {
 				backgroundBlendMode: "darken",
 			}}
 		>
-			<div className="text-xl md:text-4xl font-bold">
+			<div className="text-xl md:text-4xl font-bold text-center">
 				Master University Entrance | VSTEP | TOEIC Proficiency
 			</div>
 			<div className="text-sm md:text-2xl">

@@ -20,9 +20,9 @@ function Header() {
 	};
 
 	return (
-		<header className="flex border-b justify-between items-center px-5 h-16 ">
+		<header className="flex justify-between items-center px-5 h-16 ">
 			<Link href="/">
-				<Image src={"/logo/logo-saas.png"} alt="logo" width={100} height={100} className="w-16 h-16"/>
+				<Image src={"/logo/icon-saas.png"} alt="logo" width={100} height={100} className="w-14 h-14"/>
 			</Link>
 			<div className="hidden md:block">
 				<NavigationMenuWrapper />
@@ -40,12 +40,12 @@ function Header() {
 							height={32}
 							className="rounded-full"
 						/>
-						<Button variant="outline" onClick={handleSignOut}>Sign Out</Button>
+						<Button variant="ghost" onClick={handleSignOut}>Sign Out</Button>
 					</Link>
 				) : (
 					<div className="flex items-center">
 						<Link href="/auth/signin">
-							<Button  variant="outline">Sign In</Button>
+							<Button  variant="ghost">Sign In</Button>
 						</Link>
 					</div>
 				)}

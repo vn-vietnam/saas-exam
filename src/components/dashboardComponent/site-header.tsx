@@ -1,50 +1,50 @@
-"use client"
+"use client";
 
-import { SidebarIcon } from "lucide-react"
+import { SidebarIcon } from "lucide-react";
 
-import { SearchForm } from "@/components/dashboardComponent/search-form"
+import { SearchForm } from "@/components/dashboardComponent/search-form";
 import {
-  Breadcrumb,
-  BreadcrumbItem,
-  BreadcrumbLink,
-  BreadcrumbList,
-  BreadcrumbPage,
-  BreadcrumbSeparator,
-} from "@/components/ui/breadcrumb"
-import { Button } from "@/components/ui/button"
-import { Separator } from "@/components/ui/separator"
-import { useSidebar } from "@/components/ui/sidebar"
+	Breadcrumb,
+	BreadcrumbItem,
+	BreadcrumbLink,
+	BreadcrumbList,
+	BreadcrumbPage,
+	BreadcrumbSeparator,
+} from "@/components/ui/breadcrumb";
+import { Button } from "@/components/ui/button";
+import { Separator } from "@/components/ui/separator";
+import { useSidebar } from "@/components/ui/sidebar";
 
 export function SiteHeader() {
-  const { toggleSidebar } = useSidebar()
+	const { toggleSidebar } = useSidebar();
 
-  return (
-    <header className="flex sticky top-0  z-50 w-full items-center border-b bg-background">
-      <div className="flex h-[50px] w-full items-center gap-2 px-4">
-        <Button
-          className="h-8 w-8"
-          variant="ghost"
-          size="icon"
-          onClick={toggleSidebar}
-        >
-          <SidebarIcon />
-        </Button>
-        <Separator orientation="vertical" className="mr-2 h-4" />
-        <Breadcrumb className="hidden sm:block">
-          <BreadcrumbList>
-            <BreadcrumbItem>
-              <BreadcrumbLink href="/">
-                Home
-              </BreadcrumbLink>
-            </BreadcrumbItem>
-            <BreadcrumbSeparator />
-            <BreadcrumbItem>
-              <BreadcrumbPage>Dashboard</BreadcrumbPage>
-            </BreadcrumbItem>
-          </BreadcrumbList>
-        </Breadcrumb>
-        <SearchForm className="w-full sm:ml-auto sm:w-auto" />
-      </div>
-    </header>
-  )
+	return (
+		<header className="flex sticky top-0  z-50 w-full items-center border-b bg-background">
+			<div className="flex h-[50px] w-full items-center gap-2 px-4">
+				<Button
+					className="h-8 w-8"
+					variant="ghost"
+					size="icon"
+					onClick={toggleSidebar}
+				>
+					<SidebarIcon />
+				</Button>
+				<Separator orientation="vertical" className="mr-2 h-4" />
+				<Breadcrumb className="hidden sm:block">
+					<BreadcrumbList>
+						<BreadcrumbItem>
+							<BreadcrumbLink href="/">Home</BreadcrumbLink>
+						</BreadcrumbItem>
+						<BreadcrumbSeparator />
+						<BreadcrumbItem>
+							<BreadcrumbPage>
+								<BreadcrumbLink href="/dashboard">Dashboard</BreadcrumbLink>
+							</BreadcrumbPage>
+						</BreadcrumbItem>
+					</BreadcrumbList>
+				</Breadcrumb>
+				<SearchForm className="w-full sm:ml-auto sm:w-auto" />
+			</div>
+		</header>
+	);
 }

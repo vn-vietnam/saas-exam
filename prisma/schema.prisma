@@ -111,7 +111,7 @@ model UserExamAttempt {
   user            User     @relation(fields: [userId], references: [id])
   exam            Exam     @relation(fields: [examId], references: [id])
   userAnswers     UserAnswer[]
-  
+
   @@index([userId, examId])
 }
 
