@@ -5,7 +5,8 @@ import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import ListCard from "@/components/ListCard";
 import ContainerPage from "@/components/page-container";
-
+import GlobeComponent from "@/components/GlobeComponent";
+import { MarqueeComponent } from "@/components/MarqueeComponent";
 export default function Home() {
 	return (
 		<div className="">
@@ -15,6 +16,8 @@ export default function Home() {
 			<Banner />
 			<CarouselCard />
 			<AccordionContainer />
+			<MarqueeComponent />
+			<GlobeComponent />
 			<Footer />
 		</div>
 	);

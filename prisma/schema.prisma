@@ -66,6 +66,7 @@ model Exam {
   isActive        Boolean  @default(true)
   createdAt       DateTime @default(now())
   updatedAt       DateTime @updatedAt
+  type            String   @default("toeic") // toeic, vstep, university-entrance
   
   questions       Question[]
   examAttempts    UserExamAttempt[]

@@ -6,7 +6,6 @@ import { SearchForm } from "@/components/dashboardComponent/search-form";
 import {
 	Breadcrumb,
 	BreadcrumbItem,
-	BreadcrumbLink,
 	BreadcrumbList,
 	BreadcrumbPage,
 	BreadcrumbSeparator,
@@ -14,7 +13,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import { useSidebar } from "@/components/ui/sidebar";
-
+import Link from "next/link";
 export function SiteHeader() {
 	const { toggleSidebar } = useSidebar();
 
@@ -33,12 +32,12 @@ export function SiteHeader() {
 				<Breadcrumb className="hidden sm:block">
 					<BreadcrumbList>
 						<BreadcrumbItem>
-							<BreadcrumbLink href="/">Home</BreadcrumbLink>
+							<Link href="/">Home</Link>
 						</BreadcrumbItem>
 						<BreadcrumbSeparator />
 						<BreadcrumbItem>
 							<BreadcrumbPage>
-								<BreadcrumbLink href="/dashboard">Dashboard</BreadcrumbLink>
+								<Link href="/dashboard">Exams</Link>
 							</BreadcrumbPage>
 						</BreadcrumbItem>
 					</BreadcrumbList>

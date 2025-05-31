@@ -10,18 +10,20 @@ import CourseList from "./CourseList";
 export default function ProfilePage() {
 	const { data } = useSession();
 	const [exams, setExams] = useState<any>(null);
+	const [loading, setLoading] = useState(true);
 	const { data: session } = useSession();
 	useEffect(() => {
 		fetch(`/api/users/${session?.user?.id}/exams`)
 			.then((res) => res.json())
 			.then((data) => {
 				setExams(data);
+				setLoading(false);
 			});
 	}, []);
-	// console.log(exams?.data[0]?.exam?.title);
+	// console.log(exams);
 	return (
 		<div className="flex flex-1 flex-col gap-4 p-2">
-			<div className="grid auto-rows-min gap-4 md:grid-cols-2">
+			<div className="grid auto-rows-min gap-4 ">
 				<div className=" rounded-xl">
 					<div className="flex flex-row items-start  gap-2 w-full h-full">
 						<Image
@@ -42,9 +44,15 @@ export default function ProfilePage() {
 			</div>
 			<div className="min-h-[100vh] flex-1 rounded-xl md:min-h-min">
 				<div>
-					<h1 className="text-2xl font-bold">History Exams</h1>
+					<h1 className="text-2xl font-bold mb-5">History Exams</h1>
 				</div>
-				{exams && <CourseList exams={exams?.data} />}
+				{loading ? (
+					<div>Loading...</div>
+				) : exams?.data?.length > 0 ? (
+					<CourseList exams={exams?.data} />
+				) : (
+					<div>You have not taken any exams yet</div>
+				)}
 			</div>
 		</div>
 	);

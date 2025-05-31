@@ -27,7 +27,7 @@ export function NavigationMenuWrapper() {
 							<li className="row-span-3">
 								<NavigationMenuLink asChild>
 									<Link
-										className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-muted/50 to-muted p-4 no-underline outline-none focus:shadow-md"
+										className="flex h-full w-full select-none flex-col justify-end rounded-md  from-muted/50 to-muted p-4 no-underline outline-none focus:shadow-md"
 										href="/dashboard"
 									>
 										<Image
@@ -46,13 +46,13 @@ export function NavigationMenuWrapper() {
 									</Link>
 								</NavigationMenuLink>
 							</li>
-							<ListItem href="/dashboard/grade12" title="National High School">
+							<ListItem href="/dashboard/university-entrance" title="National High School">
 								University Entrance Exam Questions by Year - Grade 12
 							</ListItem>
 							<ListItem href="/dashboard/vstep" title="VSTEP">
 								Practice Questions & Study Guide
 							</ListItem>
-							<ListItem href="/dashboard/toiec" title="TOIEC">
+							<ListItem href="/dashboard/toeic" title="TOEIC">
 								Complete Preparation Resources
 							</ListItem>
 						</ul>

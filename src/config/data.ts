@@ -1,13 +1,13 @@
 import {
 	BookOpen,
-	Bot,
 	Frame,
 	LifeBuoy,
 	Map,
 	PieChart,
 	Send,
 	Settings2,
-	SquareTerminal,
+	Book,
+	BookCopy,
 } from "lucide-react";
 
 export const data = {
@@ -20,7 +20,7 @@ export const data = {
 		{
 			title: "Courses",
 			url: "/dashboard/courses",
-			icon: SquareTerminal,
+			icon: BookOpen,
 			isActive: true,
 			items: [
 				{
@@ -38,100 +38,108 @@ export const data = {
 			],
 		},
 		{
-			title: "Models",
-			url: "#",
-			icon: Bot,
+			title: "Exams",
+			url: "/dashboard",
+			icon: Book,
 			items: [
 				{
-					title: "Genesis",
-					url: "#",
+					title: "TOEIC",
+					url: "/dashboard/toeic",
 				},
 				{
-					title: "Explorer",
-					url: "#",
+					title: "VSTEP",
+					url: "/dashboard/vstep",
 				},
 				{
-					title: "Quantum",
-					url: "#",
+					title: "University Entrance",
+					url: "/dashboard/university-entrance",
 				},
 			],
 		},
 		{
 			title: "Documentation",
-			url: "#",
-			icon: BookOpen,
+			url: "/dashboard/documents",
+			icon: BookCopy,
 			items: [
 				{
-					title: "Introduction",
-					url: "#",
+					title: "Books",
+					url: "/dashboard/documents/books",
 				},
 				{
-					title: "Get Started",
-					url: "#",
+					title: "Grammar",
+					url: "/dashboard/documents/grammar",
 				},
 				{
-					title: "Tutorials",
-					url: "#",
+					title: "Vocabulary",
+					url: "/dashboard/documents/vocabulary",
 				},
 				{
-					title: "Changelog",
-					url: "#",
+					title: "Reading",
+					url: "/dashboard/documents/reading",
+				},
+				{
+					title: "Listening",
+					url: "/dashboard/documents/listening",
+				},
+				{
+					title: "Speaking",
+					url: "/dashboard/documents/speaking",
 				},
 			],
 		},
-		{
-			title: "Settings",
-			url: "#",
-			icon: Settings2,
-			items: [
-				{
-					title: "General",
-					url: "#",
-				},
-				{
-					title: "Team",
-					url: "#",
-				},
-				{
-					title: "Billing",
-					url: "#",
-				},
-				{
-					title: "Limits",
-					url: "#",
-				},
-			],
-		},
+		// {
+		// 	title: "Settings",
+		// 	url: "#",
+		// 	icon: Settings2,
+		// 	items: [
+		// 		{
+		// 			title: "General",
+		// 			url: "#",
+		// 		},
+		// 		{
+		// 			title: "Team",
+		// 			url: "#",
+		// 		},
+		// 		{
+		// 			title: "Billing",
+		// 			url: "#",
+		// 		},
+		// 		{
+		// 			title: "Limits",
+		// 			url: "#",
+		// 		},
+		// 	],
+		// },
 	],
 	navSecondary: [
 		{
 			title: "Support",
-			url: "#",
+			url: "/dashboard/support",
 			icon: LifeBuoy,
 		},
 		{
 			title: "Feedback",
-			url: "#",
+			url: "/dashboard/feedback",
 			icon: Send,
 		},
 	],
-	projects: [
-		{
-			name: "Design Engineering",
-			url: "#",
-			icon: Frame,
-		},
-		{
-			name: "Sales & Marketing",
-			url: "#",
-			icon: PieChart,
-		},
-		{
-			name: "Travel",
-			url: "#",
-			icon: Map,
-		},
-	],
+	// projects: [
+	// 	{
+	// 		name: "Design Engineering",
+	// 		url: "#",
+	// 		icon: Frame,
+	// 	},
+	// 	{
+	// 		name: "Sales & Marketing",
+	// 		url: "#",
+	// 		icon: PieChart,
+	// 	},
+	// 	{
+	// 		name: "Travel",
+	// 		url: "#",
+	// 		icon: Map,
+	// 	},
+	// ],
 };
 
 export const components: {

@@ -15,12 +15,13 @@ export default function DashboardPage() {
 				setLoading(false);
 			});
 	}, []);
-	console.log(exams);
+	// console.log(exams);
 
 
 	return (
 		<div className="">
-			<ListCourse exams={exams} />
+			<div className="text-2xl font-bold mb-5">Exam Preparation</div>
+			<ListCourse exams={exams?.data} />
 		</div>
 	);
 }

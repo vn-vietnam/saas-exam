@@ -36,7 +36,7 @@ export const examService = {
 		return await prisma.exam.findUnique({
 			where: {
 				id,
-				isActive: true,
+				// isActive: true,
 			},
 			include: {
 				questions: {

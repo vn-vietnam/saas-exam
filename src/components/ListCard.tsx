@@ -1,4 +1,5 @@
-import React from "react";
+"use client";
+import React, { useEffect, useState } from "react";
 import {
 	Card,
 	CardContent,
@@ -9,64 +10,37 @@ import {
 import { Button } from "./ui/button";
 import Link from "next/link";
 const ListCard = () => {
+	const [exams, setExams] = useState<any>(null);
+	useEffect(() => {
+		fetch(`/api/exams`)
+			.then((res) => res.json())
+			.then((data) => {
+				setExams(data);
+			});
+	}, []);
+	// console.log(exams);
 	return (
 		<div className="w-[100%] my-5 flex flex-col justify-center items-center gap-5">
 			<div className="text-2xl font-bold">Exam Preparation</div>
-			<div className="w-[100%] flex flex-col flex-wrap md:flex-row justify-center items-center gap-5 ">
-				<Card className="w-[300px] md:w-[350px]">
-					<CardHeader>
-						<CardTitle>VSTEP B1</CardTitle>
-						<CardDescription>Master VSTEP B1 Proficiency</CardDescription>
-					</CardHeader>
-					<CardContent>
-						<Button variant="outline">View more</Button>
-					</CardContent>
-				</Card>
-				<Card className="w-[300px] md:w-[350px]">
-					<CardHeader>
-						<CardTitle>VSTEP B2</CardTitle>
-						<CardDescription>Master VSTEP B2 Proficiency</CardDescription>
-					</CardHeader>
-					<CardContent>
-						<Button variant="outline">View more</Button>
-					</CardContent>
-				</Card>
-				<Card className="w-[300px] md:w-[350px]">
-					<CardHeader>
-						<CardTitle>TOEIC Proficiency</CardTitle>
-						<CardDescription>Master TOEIC Proficiency</CardDescription>
-					</CardHeader>
-					<CardContent>
-						<Button variant="outline">View more</Button>
-					</CardContent>
-				</Card>
-				<Card className="w-[300px] md:w-[350px]">
-					<CardHeader>
-						<CardTitle>TOEIC Proficiency</CardTitle>
-						<CardDescription>Master TOEIC Proficiency</CardDescription>
-					</CardHeader>
-					<CardContent>
-						<Button variant="outline">View more</Button>
-					</CardContent>
-				</Card>
-				<Card className="w-[300px] md:w-[350px]">
-					<CardHeader>
-						<CardTitle>TOEIC Proficiency</CardTitle>
-						<CardDescription>Master TOEIC Proficiency</CardDescription>
-					</CardHeader>
-					<CardContent>
-						<Button variant="outline">View more</Button>
-					</CardContent>
-				</Card>
-				<Card className="w-[300px] md:w-[350px]">
-					<CardHeader>
-						<CardTitle>TOEIC Proficiency</CardTitle>
-						<CardDescription>Master TOEIC Proficiency</CardDescription>
-					</CardHeader>
-					<CardContent>
-						<Button variant="outline">View more</Button>
-					</CardContent>
-				</Card>
+			<div className="w-[100%] flex flex-col flex-wrap md:flex-row justify-center items-center gap-5 px-5">
+				{exams?.data?.slice(0, 4)?.map((exam: any) => (
+					<Card
+						className="w-[100%] sm:w-[350px] hover:shadow-lg transition-all duration-300"
+						key={exam?.id}
+					>
+						<CardHeader>
+							<CardTitle>{exam?.title}</CardTitle>
+							<CardDescription>
+								{exam?.description}
+							</CardDescription>
+						</CardHeader>
+						<CardContent>
+							<Button variant="outline">
+								<Link href={`/dashboard/${exam?.id}`}>View more</Link>
+							</Button>
+						</CardContent>
+					</Card>
+				))}
 			</div>
 			<Button variant="outline">
 				<Link href="/dashboard">View more</Link>

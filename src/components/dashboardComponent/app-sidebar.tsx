@@ -4,7 +4,7 @@ import * as React from "react"
 
 
 import { NavMain } from "@/components/dashboardComponent/nav-main"
-import { NavProjects } from "@/components/dashboardComponent/nav-projects"
+
 import { NavSecondary } from "@/components/dashboardComponent/nav-secondary"
 import { NavUser } from "@/components/dashboardComponent/nav-user"
 import {
@@ -46,11 +46,12 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
       </SidebarHeader>
       <SidebarContent>
         <NavMain items={data.navMain} />
-        <NavProjects projects={data.projects} />
+        {/* <NavProjects projects={data.projects} /> */}
         <NavSecondary items={data.navSecondary} className="mt-auto" />
       </SidebarContent>
       <SidebarFooter>
-        <NavUser user={session?.user} />
+        {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
+        <NavUser user={session?.user as any} />
       </SidebarFooter>
     </Sidebar>
   )
